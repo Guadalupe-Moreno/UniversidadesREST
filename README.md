@@ -21,24 +21,26 @@
 
 **Datos por entidad:**
 
-- Datos BáSicos De Para Alumnos, Profesores Y Empleados Son: Nombre, Apellido, Dni Y DireccióN, Los Datos De Este Ultimo Son: Calle, Numero, Piso, Departamento, CóDigo Postal, Localidad. Tanto Los Empleados Y Profesores Debe Tener Un Sueldo.
+- Datos básicos de para alumnos, profesores y empleados son: Nombre, Apellido, Dni y Dirección, los datos de este ultimo son: Calle, Numero, Piso, Departamento, Código Postal, Localidad. Tanto los empleados y profesores debe tener un sueldo.
 
-- El Aula Debe Tener: Numero, TamañO (Mts X Mts), Cantidad De Pupitres, Tipo De PizarróN (Tiza O Pizarra).
+- El aula debe tener: Numero, Tamaño (mts x mts), Cantidad de pupitres, Tipo de pizarrón (Tiza o Pizarra).
 
-- El PabellóN Deben Tener: TamañO (Mts²), Nombre Y DireccióN Con Los Mismos Datos Que Persona.
+- El pabellón deben tener: Tamaño (mts²), Nombre y Dirección con los mismos datos que persona.
 
-- La Carrera Debe Tener: Nombre, Cantidad De Materias Y Cantidad De AñOs Estimados.
+- La carrera debe tener: Nombre, Cantidad de Materias y Cantidad de Años estimados.
+
 
 ------------
 
 **Datos extras:**
 
-- Cada Entidad Contara Con Un Id Propio Como TambiéN, Fecha De Alta Y ModificacióN.
+- Cada entidad contara con un ID propio como también, Fecha de alta y modificación.
 
-- Al Dar De Alta Un Alumno, Se Le Puede Asignar Una Carrera Y Para El Caso De Los Profesores Se Le Puede Asignar Una O Mas Carreras.
+- Al dar de alta un Alumno, se le puede asignar una Carrera y para el caso de los Profesores se le puede asignar una o mas Carreras.
 
-- Al Dar De Alta Un Aula, Se Le Puede Asignar Un PabellóN Y Este Ultimo Puede Contener Varias Aulas.
+- Al dar de alta un Aula, se le puede asignar un Pabellón y este ultimo puede contener varias Aulas.
 
-- Al Dar De Alta Un Empleado, Se Le Puede Asignar Un PabellóN.
+- Al dar de alta un Empleado, se le puede asignar un Pabellón.
+
 
 ****
