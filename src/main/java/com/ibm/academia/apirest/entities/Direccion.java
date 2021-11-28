@@ -2,6 +2,8 @@ package com.ibm.academia.apirest.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Embeddable;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +15,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Embeddable
 public class Direccion implements Serializable 
 {
 	private String calle;

@@ -6,6 +6,8 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +27,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table (name = "aulas")
+@Table (name = "aulas", schema = "universidad")
 
 public class Aula implements Serializable
 {
@@ -42,6 +44,8 @@ public class Aula implements Serializable
 	@Column (name = "cantidad_pupitre")
 	private Integer cantidadPupitre;
 	
+	@Column(name = "pizarron")
+	@Enumerated(EnumType.STRING)
 	private Pizarron pizarron;
 	
 	@Column (name = "fecha_alta")

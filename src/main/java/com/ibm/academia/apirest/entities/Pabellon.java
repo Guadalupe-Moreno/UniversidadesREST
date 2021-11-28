@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,16 +24,17 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table (name = "pabellones")
+@Table (name = "pabellones", schema = "universidad")
 public class Pabellon implements Serializable
 {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column (name = "tamano_metros")
-	private Double tamanoMetros;
+	@Column (name = "metros_cuadrados")
+	private Double metrosCuadrados;
 	
+	@Column (name = "nombre", unique = true, nullable = false)
 	private String nombre;
 	
 	@Column (name = "fecha_alta")
@@ -39,12 +43,17 @@ public class Pabellon implements Serializable
 	@Column (name = "fecha_modificacion")
 	private Date fechaModificacion;
 	
+	@Embedded
+	@AttributeOverrides({
+		@AttributeOverride (name = "codigoPostal", column = @Column(name = "codigo_postal")),
+		@AttributeOverride (name = "departamento", column = @Column(name = "departamento")),
+	})
 	private Direccion direccion;
 
-	public Pabellon(Integer id, Double tamanoMetros, String nombre, Direccion direccion) 
+	public Pabellon(Integer id, Double metrosCuadrados, String nombre, Direccion direccion) 
 	{
 		this.id = id;
-		this.tamanoMetros = tamanoMetros;
+		this.metrosCuadrados = metrosCuadrados;
 		this.nombre = nombre;
 		this.direccion = direccion;
 	}
