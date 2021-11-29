@@ -39,10 +39,10 @@ public abstract class Persona implements Serializable
 	@Column (name = "nombre", nullable = false, length = 60)
 	private String nombre;
 	
-	@Column (name = "nombre", nullable = false, length = 60)
+	@Column (name = "apellido", nullable = false, length = 60)
 	private String apellido;
 	
-	@Column (name = "nombre", unique = true, nullable = false, length = 10)
+	@Column (name = "dni", unique = true, nullable = false, length = 10)
 	private String dni;
 	
 	@Column (name = "fecha_alta")

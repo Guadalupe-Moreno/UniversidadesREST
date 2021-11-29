@@ -30,7 +30,7 @@ public class Profesor extends Persona
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinTable(
-		name = "profesor_carrera",
+		name = "profesor_carrera", schema = "universidad",
 		joinColumns = @JoinColumn(name = "profesor_id"),
 		inverseJoinColumns = @JoinColumn(name = "carrera_id")
 	)

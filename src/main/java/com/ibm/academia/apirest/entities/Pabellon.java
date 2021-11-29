@@ -3,15 +3,18 @@ package com.ibm.academia.apirest.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -49,6 +52,9 @@ public class Pabellon implements Serializable
 		@AttributeOverride (name = "departamento", column = @Column(name = "departamento")),
 	})
 	private Direccion direccion;
+	
+	@OneToMany(mappedBy = "pabellon", fetch = FetchType.LAZY)
+    private Set<Aula> aulas;
 
 	public Pabellon(Integer id, Double metrosCuadrados, String nombre, Direccion direccion) 
 	{

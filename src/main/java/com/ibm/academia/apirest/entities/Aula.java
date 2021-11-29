@@ -4,13 +4,17 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.ibm.academia.apirest.enums.Pizarron;
@@ -28,7 +32,6 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table (name = "aulas", schema = "universidad")
-
 public class Aula implements Serializable
 {
 
@@ -53,6 +56,10 @@ public class Aula implements Serializable
 	
 	@Column (name = "fecha_modificacion")
 	private Date fechaModificacion;
+	
+	@ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "pabellon_id", foreignKey = @ForeignKey(name = "FK_PABELLON_ID"))
+    private Pabellon pabellon;
 	
 	@Override
 	public int hashCode() 
