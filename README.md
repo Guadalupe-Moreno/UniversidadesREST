@@ -42,7 +42,12 @@
 
 - Al dar de alta un Empleado, se le puede asignar un Pabellón.
 
+------------
+
+**Modelo Relacional:**
 
 ![](MER.png)
+
+------------
 
 ****
