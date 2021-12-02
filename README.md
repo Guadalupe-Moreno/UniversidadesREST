@@ -1,3 +1,5 @@
+![](IBM.png)
+
 ### Caso Practico
 - Negocio del caso basado en una universidad.
 - Necesidad básica CRUD de todas las entidades.
