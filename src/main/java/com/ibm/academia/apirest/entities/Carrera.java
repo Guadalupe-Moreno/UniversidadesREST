@@ -21,13 +21,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table (name = "carreras", schema = "universidad")
 public class Carrera implements Serializable
@@ -56,6 +54,21 @@ public class Carrera implements Serializable
 	
 	@OneToMany (mappedBy = "carrera", fetch = FetchType.LAZY)
 	private Set<Alumno> alumnos;
+	
+	public Carrera(Integer id, String nombre, Integer cantidadMaterias, Integer cantidadAnios) 
+	{
+		this.id = id;
+		this.nombre = nombre;
+		this.cantidadMaterias = cantidadMaterias;
+		this.cantidadAnios = cantidadAnios;
+	}
+	
+	@Override
+	public String toString() {
+		return "Carrera [id=" + id + ", nombre=" + nombre + ", cantidadMaterias=" + cantidadMaterias
+				+ ", cantidadAnios=" + cantidadAnios + ", fechaAlta=" + fechaAlta + ", fechaModificacion="
+				+ fechaModificacion + "]";
+	}
 	
 	@Override
 	public int hashCode() 
@@ -87,6 +100,6 @@ public class Carrera implements Serializable
 	{
 		this.fechaModificacion = new Date(); 
 	}
-
+	
 	private static final long serialVersionUID = 7386711690996525949L;
 }
