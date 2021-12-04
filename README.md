@@ -46,10 +46,38 @@
 
 ------------
 
+# UniversidadesREST
+Paso a paso para ejecutar la aplicación:
+
+1. Instalar PostgreSQL
+- Al momento de instalar tener en cuenta la siguiente configuración del motor de base de datos:
+- usuario: postgres
+- contrasena: admin
+
+(Si ya tiene instalado Postgres omitir este paso y valide el usuario y la contraseña de la base de datos)
+
+2. Luego de instalar el motor de base de datos debe:
+
+- Crear base de datos universidad.
+
+Una vez creada la base de datos ejecutar los siguientes queries:
+
+- create schema universidad;
+
+3. Clonar y descargar el presente proyecto:
+- https://github.com/Guadalupe-Moreno/UniversidadesREST.git 
+
+4. Importar el proyecto como MAVEN en la IDE spring tool suite, eclipse o intellij
+**se debe tener instalada la librería lombook**
+
+![](Import.png)
+
+5. Ejecutar el proyecto **run as spring boot app**
+
+------------
+
 **Modelo Relacional:**
 
 ![](MER.png)
-
-------------
 
 ****

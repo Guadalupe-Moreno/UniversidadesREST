@@ -7,4 +7,5 @@ public interface CarreraDAO extends GenericoDAO<Carrera>
 	public Iterable<Carrera> findCarrerasByNombreContains(String nombre);
 	public Iterable<Carrera> findCarrerasByNombreContainsIgnoreCase(String nombre);
 	public Iterable<Carrera> findCarrerasByCantidadAniosAfter(Integer cantidadAnios); 
+	public Iterable<Carrera> findCarrerasByNombreAndApellido(String nombre, String apellido);
 }
