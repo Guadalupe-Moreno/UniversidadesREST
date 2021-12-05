@@ -67,7 +67,7 @@ Una vez creada la base de datos ejecutar los siguientes queries:
 3. Clonar y descargar el presente proyecto:
 - https://github.com/Guadalupe-Moreno/UniversidadesREST.git 
 
-4. Importar el proyecto como MAVEN en la IDE spring tool suite, eclipse o intellij
+4. Importar el proyecto como MAVEN en la IDE spring tool suite, eclipse o intellij, 
 **se debe tener instalada la librería lombook**
 
 ![](Import.png)

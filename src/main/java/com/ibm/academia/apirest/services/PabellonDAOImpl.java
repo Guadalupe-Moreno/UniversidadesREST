@@ -1,5 +1,7 @@
 package com.ibm.academia.apirest.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,4 +15,10 @@ public class PabellonDAOImpl extends GenericoDAOImpl<Pabellon, PabellonRepositor
 	public PabellonDAOImpl(PabellonRepository repository) {
 		super(repository);
 	}
+
+	@Override
+	public Optional<Pabellon> buscarPorNombre(String nombre) {
+		return repository.buscarPorNombre(nombre);
+	}
+
 }

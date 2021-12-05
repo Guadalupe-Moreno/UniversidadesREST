@@ -8,8 +8,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @Entity
 @Table (name = "alumnos", schema = "universidad")
@@ -25,7 +29,8 @@ public class Alumno extends Persona
 	}
 	
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return super.toString() + "\tAlumno []";
 	}
 

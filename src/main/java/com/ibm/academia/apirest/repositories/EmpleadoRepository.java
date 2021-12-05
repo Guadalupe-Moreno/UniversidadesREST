@@ -3,10 +3,10 @@ package com.ibm.academia.apirest.repositories;
 import org.springframework.stereotype.Repository;
 
 import com.ibm.academia.apirest.entities.Persona;
-import com.ibm.academia.apirest.enums.TipoEmpleado;
 
 @Repository("repositorioEmpleados")
 public interface EmpleadoRepository extends PersonaRepository
 {
-	public Iterable<Persona> findEmpleadoByTipoEmpleado(TipoEmpleado tipoEmpleado);
+	//@Query("select c from Empleado c where c.tipoEmpleado like %?1%");
+	public Iterable<Persona> findEmpleadoByTipoEmpleado(String tipoEmpleado);
 }

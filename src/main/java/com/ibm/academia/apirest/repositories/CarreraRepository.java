@@ -20,5 +20,6 @@ public interface CarreraRepository extends CrudRepository<Carrera, Integer>
 	//@Query("select c from Carrera c where c.cantidadAnios > ?1 ")
 	public Iterable<Carrera> findCarrerasByCantidadAniosAfter(Integer cantidadAnios); 
 	
+	//@Query("select c from Carrera c where c.nombre = ?1 and c.apellido= ?2")
 	public Iterable<Carrera> findCarrerasByNombreAndApellido(String nombre, String apellido);
 }
