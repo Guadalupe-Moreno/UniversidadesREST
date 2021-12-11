@@ -17,7 +17,6 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,10 +24,10 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table (name = "carreras", schema = "universidad")
-public class Carrera implements Serializable
+//@Table(name = "carreras", schema = "universidad")
+@Table(name = "carreras")
+public class Carrera implements Serializable 
 {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -49,11 +48,11 @@ public class Carrera implements Serializable
 	@Column (name = "fecha_modificacion")
 	private Date fechaModificacion;
 	
-	@ManyToMany (mappedBy = "carreras", fetch = FetchType.LAZY)
-	private Set<Profesor> profesores;
-	
-	@OneToMany (mappedBy = "carrera", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "carrera", fetch = FetchType.LAZY)
 	private Set<Alumno> alumnos;
+	
+	@ManyToMany(mappedBy = "carreras", fetch = FetchType.LAZY)
+	private Set<Profesor> profesores;
 	
 	public Carrera(Integer id, String nombre, Integer cantidadMaterias, Integer cantidadAnios) 
 	{
@@ -64,7 +63,8 @@ public class Carrera implements Serializable
 	}
 	
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return "Carrera [id=" + id + ", nombre=" + nombre + ", cantidadMaterias=" + cantidadMaterias
 				+ ", cantidadAnios=" + cantidadAnios + ", fechaAlta=" + fechaAlta + ", fechaModificacion="
 				+ fechaModificacion + "]";

@@ -21,18 +21,20 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table (name = "profesores", schema = "universidad")
+//@Table(name = "profesores", schema = "universidad")
+@Table(name = "profesores")
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Profesor extends Persona
-{ 
+{
 	@Column(name = "sueldo")
-	private BigDecimal sueldo; 
+	private BigDecimal sueldo;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(
-		name = "profesor_carrera", schema = "universidad",
-		joinColumns = @JoinColumn(name = "profesor_id"),
-		inverseJoinColumns = @JoinColumn(name = "carrera_id")
+			//name = "profesor_carrera", schema = "universidad",
+			name = "profesor_carrera",
+			joinColumns = @JoinColumn(name = "profesor_id"),
+			inverseJoinColumns = @JoinColumn(name = "carrera_id")
 	)
 	private Set<Carrera> carreras;
 	
@@ -43,10 +45,10 @@ public class Profesor extends Persona
 	}
 	
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return super.toString() + "\tProfesor [sueldo=" + sueldo + "]";
 	}
 
 	private static final long serialVersionUID = 6212454084535480124L;
-
 }

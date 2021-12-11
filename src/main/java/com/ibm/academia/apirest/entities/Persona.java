@@ -28,35 +28,35 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table (name = "personas", schema = "universidad")
-@Inheritance (strategy = InheritanceType.JOINED)
-public abstract class Persona implements Serializable
+//@Table(name = "personas", schema = "universidad")
+@Table(name = "personas")
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Persona implements Serializable 
 {
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column (name = "nombre", nullable = false, length = 60)
+	@Column(name = "nombre", nullable = false, length = 60)
 	private String nombre;
 	
-	@Column (name = "apellido", nullable = false, length = 60)
+	@Column(name = "apellido", nullable = false, length = 60)
 	private String apellido;
 	
-	@Column (name = "dni", unique = true, nullable = false, length = 10)
+	@Column(name = "dni", nullable = false, unique = true, length = 10)
 	private String dni;
 	
-	@Column (name = "fecha_alta")
+	@Column(name = "fecha_alta")
 	private Date fechaAlta;
 	
-	@Column (name = "fecha_modificacion")
+	@Column(name = "fecha_modificacion")
 	private Date fechaModificacion;
 	
 	@Embedded
 	@AttributeOverrides({
-		@AttributeOverride (name = "codigoPostal", column = @Column(name = "codigo_postal")),
-		@AttributeOverride (name = "departamento", column = @Column(name = "departamento")),
+		@AttributeOverride(name = "codigoPostal", column = @Column(name = "codigo_postal")),
+		@AttributeOverride(name = "departamento", column = @Column(name = "departamento"))
 	})
-	
 	private Direccion direccion;
 	
 	public Persona(Integer id, String nombre, String apellido, String dni, Direccion direccion) 
@@ -67,6 +67,7 @@ public abstract class Persona implements Serializable
 		this.dni = dni;
 		this.direccion = direccion;
 	}
+
 	
 	@Override
 	public int hashCode() 
@@ -88,16 +89,16 @@ public abstract class Persona implements Serializable
 	}
 	
 	@PrePersist
-	private void antesPersistir() 
+	private void antesPersistir()
 	{
 		this.fechaAlta = new Date();
 	}
 	
 	@PreUpdate
-	private void antesActualizar() 
+	private void antesActualizar()
 	{
-		this.fechaModificacion = new Date(); 
+		this.fechaModificacion = new Date();
 	}
-	
-	private static final long serialVersionUID = -1113622711526185972L;
+
+	private static final long serialVersionUID = 7435045832876635940L;
 }

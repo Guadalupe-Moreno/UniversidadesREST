@@ -23,12 +23,14 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table (name = "empleados", schema = "universidad")
+//@Table(name = "empleados", schema = "universidad")
+@Table(name = "empleados")
 @PrimaryKeyJoinColumn(name = "persona_id")
-public class Empleado extends Persona
+public class Empleado extends Persona 
 {
 	@Column(name = "sueldo")
 	private BigDecimal sueldo;
+	
 	@Column(name = "tipo_empleado")
 	@Enumerated(EnumType.STRING)
 	private TipoEmpleado tipoEmpleado;
@@ -40,8 +42,8 @@ public class Empleado extends Persona
 	public Empleado(Integer id, String nombre, String apellido, String dni, Direccion direccion, BigDecimal sueldo, TipoEmpleado tipoEmpleado) 
 	{
 		super(id, nombre, apellido, dni, direccion);
-		this.sueldo=sueldo;
-		this.tipoEmpleado=tipoEmpleado;
+		this.sueldo = sueldo;
+		this.tipoEmpleado = tipoEmpleado;
 	}
 	
 	@Override

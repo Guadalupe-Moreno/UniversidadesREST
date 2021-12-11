@@ -15,6 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -27,35 +29,36 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table (name = "pabellones", schema = "universidad")
+//@Table(name = "pabellones", schema = "universidad")
+@Table(name = "pabellones")
 public class Pabellon implements Serializable
 {
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column (name = "metros_cuadrados")
+	@Column(name = "metros_cuadrados")
 	private Double metrosCuadrados;
 	
-	@Column (name = "nombre", unique = true, nullable = false)
+	@Column(name = "nombre", unique = true, nullable = false)
 	private String nombre;
 	
-	@Column (name = "fecha_alta")
+	@Column(name = "fecha_alta")
 	private Date fechaAlta;
 	
-	@Column (name = "fecha_modificacion")
+	@Column(name = "fecha_modificacion")
 	private Date fechaModificacion;
 	
 	@Embedded
 	@AttributeOverrides({
-		@AttributeOverride (name = "codigoPostal", column = @Column(name = "codigo_postal")),
-		@AttributeOverride (name = "departamento", column = @Column(name = "departamento")),
+		@AttributeOverride(name = "codigoPostal", column = @Column(name = "codigo_postal")),
+		@AttributeOverride(name = "departamento", column = @Column(name = "departamento"))
 	})
 	private Direccion direccion;
 	
 	@OneToMany(mappedBy = "pabellon", fetch = FetchType.LAZY)
-    private Set<Aula> aulas;
-
+	private Set<Aula> aulas;
+	
 	public Pabellon(Integer id, Double metrosCuadrados, String nombre, Direccion direccion) 
 	{
 		this.id = id;
@@ -63,7 +66,7 @@ public class Pabellon implements Serializable
 		this.nombre = nombre;
 		this.direccion = direccion;
 	}
-
+	
 	@Override
 	public int hashCode() 
 	{
@@ -82,6 +85,18 @@ public class Pabellon implements Serializable
 		Pabellon other = (Pabellon) obj;
 		return Objects.equals(id, other.id) && Objects.equals(nombre, other.nombre);
 	}
+	
+	@PrePersist
+	private void antesPersistir()
+	{
+		this.fechaAlta = new Date();
+	}
+	
+	@PreUpdate
+	private void antesActualizar()
+	{
+		this.fechaModificacion = new Date();
+	}
 
-	private static final long serialVersionUID = 5895151497921997034L;
+	private static final long serialVersionUID = 6453675000837381309L;
 }
